@@ -1,3 +1,25 @@
+# Model
+
+Here's a breakdown of the dimensions for the key variables in the Black-Litterman model when you have n stocks in the market and n investor views:
+- pi (Equilibrium Returns): An n×1 vector, representing the market-implied expected returns for each stock.
+- delta (Risk Aversion Coefficient): A scalar that quantifies the overall market risk aversion used in reverse optimization.
+- Sigma (Covariance Matrix): An n×n matrix capturing the variances and covariances of the returns of the n stocks.
+- w_m (Market Weights): An n×1 vector representing the weights of each stock in the market portfolio.
+-tau (Scaling Factor for Uncertainty): A scalar that scales the covariance matrix to reflect the uncertainty in the equilibrium returns.
+
+Investor Views Components:
+- P: A k×n matrix that specifies which stocks (and in what combination) each view pertains to. Each row represents one view.
+- Q: A k×1 vector, with each element representing the expected return difference or level according to the investor's view.
+- Omega: A k×k matrix representing the uncertainty (variance/covariance) of the investor's views. Often, if views are assumed to be independent, this is diagonal.
+- mu (Posterior/Adjusted Expected Returns): An n×1 vector resulting from the blending of the equilibrium returns with the investor's views.
+- w (Portfolio Weights):An n×1 vector determined by the portfolio optimization process, based on the adjusted expected returns mu and the covariance matrix Sigma.
+- q (Risk Aversion Parameter in Optimization): A scalar used in the portfolio optimization objective, balancing expected returns against portfolio risk. While conceptually similar to delta, it's applied within the optimization context.
+
+
+
+
+
+# Roadmap
 1. Data Preparation and Quality Assurance
 - Data Cleaning and Preprocessing:
 Ensure you have a robust data cleaning process. This includes handling missing data (e.g., interpolation or deletion), adjusting for corporate actions (splits, dividends) if necessary, and filtering out any outliers or erroneous data that could impact later calculations.
