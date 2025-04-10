@@ -13,7 +13,7 @@ pandas
 yfinance
 XGBoost
 matplotlib
-SciPy.
+SciPy
 scikit-learn
 ```
 
