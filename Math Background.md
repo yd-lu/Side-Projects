@@ -3,10 +3,10 @@
 Modern portfolio theory (MPT) provides a framework for assembling a portfolio of assets in such a way as to maximize the expected return for a given level of risk. Developed by Harry Markowitz, it emphasizes the benefits of diversification by considering both the returns and the risks (covariances) of the assets.
 
 ## Key Components
-- **μ (Expected Returns):** An *n×1* vector representing the estimated returns of *n* assets.
-- **Σ (Covariance Matrix):** An *n×n* matrix that captures the variances of each asset's returns along with the covariances between them.
-- **w (Portfolio Weights):** An *n×1* vector indicating the proportion of the portfolio invested in each asset.
-- **q (Risk Aversion Parameter):** A scalar that reflects the investor's tolerance for risk. A higher value of *q* implies that the investor is more risk-averse.
+- **$\mu$ (Expected Returns):** An $n\times 1$ vector representing the estimated returns of $n$ assets.
+- **$\Sigma$ (Covariance Matrix):** An $n\times n$ matrix that captures the variances of each asset's returns along with the covariances between them.
+- **$w$ (Portfolio Weights):** An $n\times 1$ vector indicating the proportion of the portfolio invested in each asset.
+- **$q$ (Risk Aversion Parameter):** A scalar that reflects the investor's tolerance for risk. A higher value of $q$ implies that the investor is more risk-averse.
 
 ## Optimization Objective
 In the modern portfolio framework, the optimal portfolio is typically determined by maximizing a risk-adjusted utility function. One common approach is to maximize the difference between the portfolio's expected return and a penalty for risk:
