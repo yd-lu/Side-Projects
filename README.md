@@ -8,7 +8,7 @@ I am undertaking this personal project to deepen my understanding of quantitativ
 I am driven by my desire to master advanced data analysis techniques and to develop a comprehensive Python-based pipeline—from data collection and feature engineering, to model tuning, portfolio optimization, and performance evaluation.
 
 
-# Files in This Branch
+# Files In This Branch
 
 - **Math Background.md** : Provides a concise overview of the Black‑Litterman model.
 - **Roadmap.md** : Outlines the complete pipeline of the project.
