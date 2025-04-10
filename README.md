@@ -1,8 +1,9 @@
-# Project Title:
+# Project Title 
 
 Dynamic Black‑Litterman Portfolio Optimization Using Machine Learning
 
-# Goal and Overview:
+# Goal and Overview 
+
 I am undertaking this personal project to deepen my understanding of quantitative finance and machine learning through a practical, hands-on approach. I have chosen to implement the Black‑Litterman model because I want to explore how to combine market information with my own strategies to dynamically optimize investment portfolios.
 
 I am driven by my desire to master advanced data analysis techniques and to develop a comprehensive Python-based pipeline—from data collection and feature engineering, to model tuning, portfolio optimization, and performance evaluation.
