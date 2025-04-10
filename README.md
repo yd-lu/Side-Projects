@@ -13,5 +13,5 @@ I am driven by my desire to master advanced data analysis techniques and to deve
 
 - **Math Background.md** : Provides a concise overview of the Black‑Litterman model.
 - **Roadmap.md** : Outlines the complete pipeline of the project.
-- **Proj - Dynamic Black‑Litterman Model.ipynb** : The main Python notebook implementing the project. **Enjoy it !**
+- **Proj - Dynamic Black‑Litterman Model.ipynb** : The main Python notebook implementing the project. **Enjoy it!**
 - **Limitations and Future Improvements.md** : Discusses limitations of current approach and suggests future improvements.
