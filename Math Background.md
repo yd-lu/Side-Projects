@@ -21,7 +21,7 @@ $$
   The term **\mu^T w ** represents the weighted sum of expected returns for the portfolio.
   
 - **Risk (Variance) Penalty:**  
-  The term *\frac{q}{2} w^T \Sigma w* quantifies the overall portfolio risk, with *w^T \Sigma w* being the portfolio variance. The risk aversion parameter, *q*, scales this penalty—investors with higher risk aversion place more weight on minimizing variance.
+  The term *\frac{q}{2}w^T \Sigma w* quantifies the overall portfolio risk, with *w^T\Sigma w* being the portfolio variance. The risk aversion parameter, *q*, scales this penalty—investors with higher risk aversion place more weight on minimizing variance.
 
 This formulation encapsulates the trade-off between return and risk, where the goal is to choose portfolio weights *w* that balance maximizing expected returns while minimizing risk. Constraints such as the sum of weights equaling 1 and non-negativity of weights (if short selling is not allowed) are often added depending on the investment strategy.
 
