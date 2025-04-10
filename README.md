@@ -4,6 +4,23 @@ This document outlines the structure and workflow of the project, from data acqu
 
 ---
 
+## 0. Libraries
+
+```
+math
+NumPy
+pandas
+yfinance
+XGBoost
+matplotlib
+SciPy.
+scikit-learn
+```
+
+---
+
+---
+
 ## 1. Data Acquisition and Preparation
 
 - **Import Libraries:**  
