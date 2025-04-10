@@ -19,8 +19,6 @@ scikit-learn
 
 ---
 
----
-
 ## 1. Data Acquisition and Preparation
 
 - **Import Libraries:**  
