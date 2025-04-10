@@ -1,95 +1,165 @@
-1. Data Preparation and Quality Assurance
-- Data Cleaning and Preprocessing:
-Ensure you have a robust data cleaning process. This includes handling missing data (e.g., interpolation or deletion), adjusting for corporate actions (splits, dividends) if necessary, and filtering out any outliers or erroneous data that could impact later calculations.
+# Project Roadmap
 
-- Data Frequency Considerations:
-Decide on the frequency (daily, weekly, monthly) that best suits your analysis. Rolling estimates must align with the temporal granularity, so confirm that the chosen data frequency optimally balances noise and signal.
+This document outlines the structure and workflow of the project, from data acquisition to performance evaluation and sensitivity analysis.
 
-- Data Stationarity:
-Verify if the time series data (returns, volatilities) is stationary or if differencing/transformations are required. Using stationarity tests (ADF, KPSS) could also be part of your EDA.
+---
 
-2. Factor Construction and Exploratory Data Analysis (EDA)
-- Extended Feature Engineering:
-Beyond simple calculations for volatility and momentum, consider incorporating other factors (e.g., liquidity measures, value, size) to enrich your predictive power.
+## 1. Data Acquisition and Preparation
 
-- Rolling Window EDA:
-For each rolling window, complement summary statistics with visualizations such as time series plots, autocorrelation functions, and distribution checks. This ensures you capture any time-varying dynamics or structural breaks.
+- **Import Libraries:**  
+  Load all necessary Python libraries for data manipulation, modeling, and visualization.
 
-- Stress Testing and Scenario Analysis:
-Integrate stress tests to see how extreme market conditions affect your computed factors. This can help evaluate the stability of your models.
+- **Define Asset Universe:**  
+  Specify the tickers for U.S. equities, international equities, fixed income, and commodities.
 
-3. Enhanced Optimization and Parameter Estimation
-- Robust Covariance Estimation:
-Considering modern alternatives (e.g., shrinkage techniques like Ledoit-Wolf) when estimating Σ can help stabilize your estimates, particularly over rolling windows with limited data.
+- **Download Data:**  
+  Fetch historical market data (prices and volumes) from Yahoo Finance for the selected tickers, and additionally download benchmark data (S&P500).
 
-- Risk Aversion Coefficient (δ):
-Experiment with the estimation or calibration of δ. Consider making δ dynamic by inferring it from historical risk–return trade-offs or using market-implied estimates.
+---
 
-- Scaling Factor τ:
-Instead of just estimating τ from historical data, you could implement a sensitivity analysis or even a Bayesian approach to better capture its uncertainty.
+## 2. Feature Engineering and Factor Calculation
 
-4. Views (P and Q) and Machine Learning Integration
-- Model Selection and Validation:
-Since you intend to predict your views using machine learning models, detail a process for model selection, cross-validation, and hyperparameter tuning. For example, include both tree-based methods and linear models, and compare their forecasting performance for P and Q.
+- **Compute Returns:**  
+  Calculate daily price returns and log returns using adjusted close prices.
 
-- Feature Selection:
-Identify which predictors (macroeconomic indicators, technical factors, etc.) most impact your views. This could also involve dimensionality reduction techniques (like PCA) prior to the predictive modeling.
+- **Compute Factors:**  
+  - **Momentum:**  
+    Calculate momentum as the percentage change over a specified window.
+  - **Volatility:**  
+    Compute rolling volatility using the standard deviation of log returns.
+  - **Average Volume:**  
+    Determine the rolling average volume over the lookback period.
 
-- Robustness Checks:
-Establish error metrics and confidence intervals around your predictions for Q, and test the impact of mis-specification on the final portfolio. Consider ensemble approaches to hedge against model risk.
+- **Compile Factors:**  
+  Organize these computed factors into a consolidated DataFrame for each asset.
 
-5. Portfolio Construction and Optimization
-- Differential Evolution and Metaheuristics:
-Differential evolution (DE) is a robust metaheuristic for non-convex problems, especially when the optimization landscape is irregular. Emphasize that DE can help find global optima where traditional quadratic programming may struggle. Ensure that you understand its parameters (population size, mutation factor, crossover probability) and validate its convergence for your application.
+---
 
-- Marchenko-Pastur Theorem for Filtering Noise:
-The Marchenko-Pastur theorem is used to filter out noise from the eigenvalues of your covariance matrix. This step can help improve the robustness of portfolio optimization by “cleaning” the covariance matrix, thus leading to more reliable risk estimates.
+## 3. Exploratory Data Analysis (EDA)
 
-- Transaction Costs and Rebalancing Frequency:
-Model trading frictions and realistic rebalancing costs. Evaluate turnover constraints and incorporate regularization techniques to avoid excessive trading. Simulate different rebalancing frequencies in your backtests.
+- **Correlation Matrix:**  
+  Visualize the correlation between computed factors and daily returns.
 
-- Additional Metrics:
-Beyond Sharpe ratio, consider including metrics like the Sortino ratio, maximum drawdown, and conditional value at risk (CVaR) to get a well-rounded performance picture.
+- **Histograms:**  
+  Plot histograms to explore the distribution of daily returns for each asset.
 
-6. Backtesting Framework and Performance Evaluation
-- Backtesting Rigor:
-Set up a detailed backtesting framework that includes walk-forward analysis. Validate your approach using out-of-sample testing and a rolling window strategy that realistically models execution lag and market impact.
+- **Scatter Plots:**  
+  Examine the relationship between each factor (momentum, volatility, average volume) and the respective asset returns, identifying outliers or patterns.
 
-- Benchmark Analysis:
-Besides comparing to the S&P500, assess performance relative to other benchmarks or risk parity strategies to position your results within a broader context.
+---
 
-- Statistical Significance:
-Use hypothesis testing (e.g., t-tests on performance metrics) to validate whether your strategy’s outperformance is statistically significant versus the chosen benchmarks.
+## 4. Constructing Investor Views via Black-Litterman Framework
 
-- Visualization and Reporting:
-Document your findings with clear visualizations (cumulative returns, drawdowns, factor exposures over time) and create a comprehensive report that can be showcased on your CV.
+- **Define Functions for Black-Litterman Adjustments:**  
+  - `compute_Omega`: Calculate the view uncertainty (diagonal matrix).
+  - `compute_mu_BL`: Compute Black-Litterman adjusted expected returns.
 
-7. Robustness and Sensitivity Analysis
-- Parameter Sensitivity:
-Carefully analyze how sensitive your results are to the values of τ, δ, and the machine learning forecasts for P and Q. Running scenario analysis and Monte Carlo simulations could provide insights into the stability of your strategy.
+- **Generate Views:**  
+  - **Machine Learning (ML)-Based Views (`Q_ml`):**  
+    Use historical features with ML models (XGBoost and Random Forest) to predict future asset returns.
+  - **Rule-Based Views:**  
+    Create signals based on relative average trading volumes.
+  - **Combine Views:**  
+    Merge ML-based predictions and rule-based signals to form the final view vector (`Q`) using an identity matrix as the pick matrix (`P`).
 
-- Stress Tests and Out-of-Sample Validation:
-Consider additional robustness checks that simulate extreme market conditions or sudden shifts in volatility regimes. Also, validate your models across different historical periods, including bull and bear markets.
+- **Adjust Views:**  
+  Modify the combined view vector (`Q`) based on changes in portfolio performance over time.
 
-8. Documentation and Reproducibility
-- Clear Code Documentation:
-Ensure that every step is well-commented and that your code is modular. A reproducible notebook with clear documentation (and possibly version control) will enhance both academic and professional credibility.
+---
 
-- Automated Reporting:
-If possible, automate the generation of reports that summarize performance metrics, risk measures, and parameter sensitivity analyses for each rolling window period.
+## 5. Portfolio Optimization
 
-- Risk Management and Ethics:
-Incorporate a section discussing the assumptions, limitations, and potential pitfalls of the Black-Litterman approach. This shows a critical understanding and adds transparency to your project.
+- **Optimization Setup:**  
+  Formulate an optimization problem targeting the maximization of the portfolio Sharpe ratio.
 
-9. Summary
-- Data: Emphasize thorough data cleaning, appropriate frequency selection, and stationarity checks.
+- **Constraints:**  
+  - **Budget Constraint:**  
+    The sum of portfolio weights equals 1.
+  - **No Short-Selling:**  
+    Each weight is within the interval [0, 1].
+  - **Variance Constraint:**  
+    The portfolio variance must be below a specified target.
 
-- EDA & Feature Engineering: Incorporate diverse factors, visualization, and stress testing.
+- **Solve the Optimization:**  
+  Optimize portfolio weights using the derived adjusted expected returns and computed covariance matrix.
 
-- Estimation & Optimization: Use robust covariance estimation, carefully calibrate δ and τ, and explore both traditional and metaheuristic optimizers.
+---
 
-- Views & Machine Learning: Validate ML models for predicting P and Q with proper cross-validation and feature selection.
+## 6. Machine Learning-Based Return Forecasting
 
-- Portfolio Construction: Model realistic transaction costs, use differential evolution for optimization, and apply the Marchenko-Pastur theorem to clean covariance estimates.
+- **XGBoost Model:**  
+  Train an XGBoost regressor to predict forward returns based on historical features.
 
-- Backtesting & Reporting: Build a comprehensive backtesting framework with sensitivity tests, and clearly document and visualize results.
+- **Random Forest Model:**  
+  Similarly, train a Random Forest regressor for return prediction.
+
+- **Ensemble Prediction:**  
+  Combine predictions from both models to enhance the forecast's robustness.
+
+---
+
+## 7. Backtesting and Rolling Simulation
+
+- **Define Rebalancing Dates:**  
+  Establish a rolling window for rebalancing based on historical data.
+
+- **Rolling Backtest Process:**  
+  For each rebalancing period:
+  - Compute the covariance matrix and equilibrium returns.
+  - Construct investor views and compute adjusted expected returns.
+  - Optimize portfolio weights.
+  - Account for transaction costs.
+  - Evaluate performance in the following period.
+  - Store performance metrics and update portfolio weights.
+
+---
+
+## 8. Performance Evaluation and Metrics Calculation
+
+- **Cumulative Returns:**  
+  Compute and visualize cumulative returns for both the portfolio and the benchmark.
+
+- **Additional Metrics:**  
+  Calculate:
+  - Annualized return and volatility.
+  - Sharpe Ratio.
+  - Maximum drawdown.
+  - Value at Risk (VaR) and Conditional Value at Risk (CVaR).
+
+---
+
+## 9. Regression Analysis for Alpha/Beta Estimation
+
+- **Excess Returns Calculation:**  
+  Compute daily excess returns for both the portfolio and the benchmark (subtracting the risk-free rate).
+
+- **Linear Regression:**  
+  Fit a regression model to derive portfolio beta and daily alpha.
+
+- **Annualize Alpha:**  
+  Convert daily alpha estimates into an annualized figure.
+
+---
+
+## 10. Hypothesis Testing for Outperformance
+
+- **Return Differences:**  
+  Calculate the daily return differences between the portfolio and the S&P500 benchmark.
+
+- **Statistical Testing:**  
+  Employ a one-sample t-test on the daily differences to evaluate if the mean difference is statistically significant.
+
+---
+
+## 11. Sensitivity Analysis with Monte Carlo Simulation
+
+- **Tau Parameter Sampling:**  
+  Sample the tau parameter (view uncertainty) from a range using Monte Carlo iterations.
+
+- **Simulate Portfolio Returns:**  
+  Run the simulation for each tau value to derive annualized return distributions.
+
+- **Visualization and Summary:**  
+  Plot a histogram of simulated annualized returns and calculate summary statistics (mean, standard deviation, minimum, and maximum).
+
+---
