@@ -55,7 +55,7 @@ The Black–Litterman model provides a way to estimate $\mu$, by incorporating i
 - **$w$ (Portfolio Weights):** The optimal $n\times 1$ vector of portfolio weights determined via optimization.
 - **$q$ (Risk Aversion Parameter in Optimization):** A scalar (akin to $\delta$) used in the portfolio optimization process.
 
-The Black–Litterman model first blends the market equilibrium with the investor views using:
+The Black–Litterman model blends the market equilibrium with the investor views using:
 
 $$
 \mu = \left[ (\tau \Sigma)^{-1} + P^T \Omega^{-1} P \right]^{-1} \left[ (\tau \Sigma)^{-1} \pi + P^T \Omega^{-1} Q \right]
