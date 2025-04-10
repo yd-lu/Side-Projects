@@ -15,9 +15,6 @@ This document discusses some of the current limitations of the project as well a
     - **Grouped Views:** Allow grouping of assets into clusters and expressing views on these clusters rather than on individual assets.
     - **Custom Views:** Provide an interface or configuration setting that lets users define their own P matrices tailored to different investment hypotheses.
 
-- **Elaboration:**  
-  - In the Black-Litterman framework, the pick matrix P plays a central role in encoding investor views. By moving beyond the identity matrix, you not only allow for absolute views but also relative and composite views. This flexibility can lead to a more nuanced and potentially more accurate formulation of the portfolio allocation problem.
-
 ---
 
 ## 2. Handling Outliers in the EDA Step
