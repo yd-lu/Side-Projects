@@ -1,6 +1,6 @@
 # Modern Portfolio Model Explanation and Optimization Objective
 
-Modern portfolio theory (MPT) provides a framework for assembling a portfolio of assets in such a way as to maximize the expected return for a given level of risk. Developed by Harry Markowitz, it emphasizes the benefits of diversification by considering both the returns and the risks (covariances) of the assets.
+Modern portfolio theory provides a framework for assembling a portfolio of assets in such a way as to maximize the expected return for a given level of risk. Developed by Harry Markowitz, it emphasizes the benefits of diversification by considering both the returns and the risks (covariances) of the assets.
 
 ## Key Components
 - **$\mu$ (Expected Returns):** An $n\times 1$ vector representing the estimated returns of $n$ assets.
