@@ -16,7 +16,7 @@ This document discusses some of the current limitations of the project as well a
 
 ---
 
-## 2. Handling Outliers in the EDA Step
+## 2. Handling Outliers and high-leverage points in the EDA Step
 
 - **Current Observation:**  
   - The scatter plots that compare factors (momentum, volatility, average volume) with daily returns show many outliers and high-leverage points.
