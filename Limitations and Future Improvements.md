@@ -1,6 +1,6 @@
 # Limitations and Future Improvements
 
-This document discusses some of the current limitations of the project as well as possible enhancements I expect for the future.
+I want to discusses some of the current limitations of the project as well as possible enhancements I expect for the future.
 
 ---
 
