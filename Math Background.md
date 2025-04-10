@@ -4,12 +4,12 @@ Modern portfolio theory (MPT) provides a framework for assembling a portfolio of
 
 ## Key Components
 - **μ (Expected Returns):** An *n×1* vector representing the estimated returns of *n* assets.
-- **Σ (Covariance Matrix):** An *n×n* matrix that captures the variances of each asset’s returns along with the covariances between them.
+- **Σ (Covariance Matrix):** An *n×n* matrix that captures the variances of each asset's returns along with the covariances between them.
 - **w (Portfolio Weights):** An *n×1* vector indicating the proportion of the portfolio invested in each asset.
 - **q (Risk Aversion Parameter):** A scalar that reflects the investor's tolerance for risk. A higher value of *q* implies that the investor is more risk-averse.
 
 ## Optimization Objective
-In the modern portfolio framework, the optimal portfolio is typically determined by maximizing a risk-adjusted utility function. One common approach is to maximize the difference between the portfolio’s expected return and a penalty for risk:
+In the modern portfolio framework, the optimal portfolio is typically determined by maximizing a risk-adjusted utility function. One common approach is to maximize the difference between the portfolio's expected return and a penalty for risk:
 
 $$
 \text{maximize } \mu^T w - \frac{q}{2} w^T \Sigma w
