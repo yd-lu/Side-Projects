@@ -41,7 +41,7 @@ scikit-learn
   - **Momentum:**  
     Calculate momentum as the percentage change over a specified window.
   - **Volatility:**  
-    Compute rolling volatility using the standard deviation of log returns.
+    Compute rolling volatility using the standard deviation of daily returns (which approximate log daily returns).
   - **Average Volume:**  
     Determine the rolling average volume over the lookback period.
 
