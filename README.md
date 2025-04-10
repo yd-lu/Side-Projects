@@ -63,7 +63,20 @@ scikit-learn
 
 ---
 
-## 4. Constructing Investor Views via Black-Litterman Framework
+## 4. Machine Learning-Based Return Forecasting
+
+- **XGBoost Model:**  
+  Train an XGBoost regressor to predict forward returns based on historical features.
+
+- **Random Forest Model:**  
+  Similarly, train a Random Forest regressor for return prediction.
+
+- **Ensemble Prediction:**  
+  Combine predictions from both models to enhance the forecast's robustness.
+  
+---
+
+## 5. Constructing Investor Views via Black-Litterman Framework
 
 - **Define Functions for Black-Litterman Adjustments:**  
   - `compute_Omega`: Calculate the view uncertainty (diagonal matrix).
@@ -71,7 +84,7 @@ scikit-learn
 
 - **Generate Views:**  
   - **Machine Learning (ML)-Based Views (`Q_ml`):**  
-    Use historical features with ML models (XGBoost and Random Forest) to predict future asset returns.
+    Use historical features with ML models described above (XGBoost and Random Forest) to predict future asset returns.
   - **Rule-Based Views:**  
     Create signals based on relative average trading volumes.
   - **Combine Views:**  
@@ -82,7 +95,7 @@ scikit-learn
 
 ---
 
-## 5. Portfolio Optimization
+## 6. Portfolio Optimization
 
 - **Optimization Setup:**  
   Formulate an optimization problem targeting the maximization of the portfolio Sharpe ratio.
@@ -97,19 +110,6 @@ scikit-learn
 
 - **Solve the Optimization:**  
   Optimize portfolio weights using the derived adjusted expected returns and computed covariance matrix.
-
----
-
-## 6. Machine Learning-Based Return Forecasting
-
-- **XGBoost Model:**  
-  Train an XGBoost regressor to predict forward returns based on historical features.
-
-- **Random Forest Model:**  
-  Similarly, train a Random Forest regressor for return prediction.
-
-- **Ensemble Prediction:**  
-  Combine predictions from both models to enhance the forecast's robustness.
 
 ---
 
