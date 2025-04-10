@@ -35,7 +35,7 @@ scikit-learn
 ## 2. Feature Engineering and Factor Calculation
 
 - **Compute Returns:**  
-  Calculate daily price returns and log returns using adjusted close prices.
+  Calculate daily price returns using adjusted close prices.
 
 - **Compute Factors:**  
   - **Momentum:**  
