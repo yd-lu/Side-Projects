@@ -1,3 +1,3 @@
 ## Branches
 
-- Proj 1-Black-Litterman
+- Proj-1-Black-Litterman
