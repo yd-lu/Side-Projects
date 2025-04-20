@@ -52,7 +52,6 @@ The Black–Litterman model provides a way to estimate $\mu$, by incorporating i
 ## Output Variables
 - **$\mu$ (Posterior/Adjusted Expected Returns):** An $n\times 1$ vector obtained by blending the equilibrium returns $\pi$ with the investor views.
 - **$w$ (Portfolio Weights):** The optimal $n\times 1$ vector of portfolio weights determined via optimization.
-- **$q$ (Risk Aversion Parameter in Optimization):** A scalar (akin to $\delta$) used in the portfolio optimization process.
 
 The Black–Litterman model blends the market equilibrium with the investor views using:
 
