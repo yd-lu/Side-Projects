@@ -42,7 +42,6 @@ The Black–Litterman model provides a way to estimate $\mu$, by incorporating i
 - **$\pi$ (Equilibrium Returns):** An $n\times 1$ vector of market-implied expected returns.
 - **$\delta$ (Risk Aversion Coefficient):** A scalar quantifying overall market risk aversion.
 - **$\Sigma$ (Covariance Matrix):** An $n\times n$ matrix capturing the variances and covariances among stocks.
-- **$w_m$ (Market Weights):** An $n\times 1$ vector of market portfolio weights.
 - **$\tau$ (Scaling Factor for Uncertainty):** A scalar that scales $\Sigma$ to reflect uncertainty in $\pi$.
 
 ## Investor Views Components
