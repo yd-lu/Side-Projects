@@ -8,6 +8,7 @@ This document outlines the structure and workflow of the project, from data acqu
 
 ```
 math
+functools
 NumPy
 pandas
 yfinance
@@ -67,12 +68,6 @@ scikit-learn
 
 - **XGBoost Model:**  
   Train an XGBoost regressor to predict forward returns based on historical features.
-
-- **Random Forest Model:**  
-  Similarly, train a Random Forest regressor for return prediction.
-
-- **Ensemble Prediction:**  
-  Combine predictions from both models to enhance the forecast's robustness.
   
 ---
 
@@ -84,7 +79,7 @@ scikit-learn
 
 - **Generate Views:**  
   - **Machine Learning (ML)-Based Views (`Q_ml`):**  
-    Use historical features with ML models described above (XGBoost and Random Forest) to predict future asset returns.
+    Use historical features with ML models described above (XGBoost) to predict future asset returns.
   - **Rule-Based Views:**  
     Create signals based on relative average trading volumes.
   - **Combine Views:**  
@@ -169,7 +164,7 @@ scikit-learn
 ## 11. Sensitivity Analysis with Monte Carlo Simulation
 
 - **Tau Parameter Sampling:**  
-  Sample the tau parameter (view uncertainty) from a range using Monte Carlo iterations.
+  Sample the tau and Q parameters from a range using Monte Carlo iterations.
 
 - **Simulate Portfolio Returns:**  
   Run the simulation for each tau value to derive annualized return distributions.
