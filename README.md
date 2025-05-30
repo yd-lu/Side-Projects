@@ -29,7 +29,7 @@ runner = TaskRunner()
 runner.run_task("build")
 ```
 
-### Example
+### Example in example_tasks.py
 Run:
 
 ```bash
