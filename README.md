@@ -10,21 +10,21 @@ This is a minimal event-driven GUI framework for building terminal-based applica
 - Interactive `App.run()` loop
 - Easily extensible and customizable
 
-## Example
+## Usage Example in example_app.py
 
 ```python
-from gui_framework.core import App
-from gui_framework.widgets import TextBox, Button, Label
-from gui_framework.events import on_click
+from .core import App
+from .widgets import TextBox, Button, Label
+from .events import on_click
 
 app = App()
 name = TextBox("name", "Enter your name")
-greeting = Label("greeting", "")
-submit = Button("submit", "Submit")
+button = Button("greet", "Greet")
+greeting = Label("hello", "")
 
-@on_click("submit")
-def greet():
-    greeting.text = f"Hello, {name.value}!"
+@on_click("greet")
+def say_hello():
+    greeting.text = f"Hello, {name.value}"
 
-app.add(name, submit, greeting)
+app.add(name, button, greeting)
 app.run()
