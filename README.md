@@ -1,4 +1,4 @@
 ## Branches
 
 - Finance - Black-Litterman
-- Code - Task Runner Framework
+- Finance - Mid-Frequency Crypto Trading 
